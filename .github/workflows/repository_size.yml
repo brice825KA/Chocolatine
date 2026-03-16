@@ -1,2 +1,18 @@
+name: Greeting on variable day
+
 on:
-  
+  push:
+    branches: [main]
+
+env:
+    DAY_OF_WEEK: Monday
+
+jobs:
+  build:
+     runs-on: ubuntu-latest
+     steps:
+       - name: checkout repo
+         uses: actions/checkout
+
+       - name: name of branch
+         run: echo $(git branch --show-current) && du -skh --exclude=".git"
