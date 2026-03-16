@@ -2,7 +2,7 @@ name: date commit
 run-name: ${{ github.actor }} is learning Github Actions
 on: [push]
 jobs:
-    runs-on: ubuntu-latest:
-        steps:
-            -uses: actions/checkout@v5
-            -run: date
+  runs-on: ubuntu-latest:
+    steps:
+      -uses: actions/checkout@v5
+      -run: date
