@@ -6,7 +6,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: pixta-dev/repository-mirroring-action@v1
         with:
           target_one:
@@ -17,7 +19,9 @@ jobs:
   to_code_commit:
      runs-on: ubuntu-latest
      steps:
-       - uses: actions/checkout@v5
+       - uses: actions/checkout@v4
+         with:
+           fetch-depth: 0
        - uses: pixta-dev/repository-mirroring-action@v1
          with:
            target_repo:
