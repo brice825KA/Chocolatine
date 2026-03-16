@@ -1,0 +1,6 @@
+jobs:
+    my_jobs:
+        runs-on: ubuntu-latest
+        steps:
+        - name: date commit
+          run: date
