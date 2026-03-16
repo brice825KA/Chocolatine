@@ -1,4 +1,8 @@
+name: date commit
+run-name: ${{ github.actor }} is learning Github Actions
+on: [push]
 jobs:
-    my_jobs:
-        - name: date commit
-          run: date
+    runs-on: ubuntu-latest:
+        steps:
+            -uses: actions/checkout@v5
+            -run: date
