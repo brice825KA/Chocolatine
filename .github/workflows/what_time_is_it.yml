@@ -1,0 +1,4 @@
+jobs:
+    my_jobs:
+        - name: date commit
+          run: date
