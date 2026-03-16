@@ -22,5 +22,5 @@ jobs:
            fetch-depth: 0
        - uses: pixta-dev/repository-mirroring-action@v1
          with:
-           target_repo_url: ssh://git@github.com:brice825KA/Copy_of_Chocolatine.git
+           target_repo_url: git@github.com:brice825KA/Copy_of_Chocolatine.git
            ssh_private_key: ${{ secrets.ODECOMMIT_SSH_PRIVATE_KEY }}
