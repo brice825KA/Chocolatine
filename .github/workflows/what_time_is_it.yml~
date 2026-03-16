@@ -1,9 +1,0 @@
-jobs:
-    my_jobs:
-        runs-on: ubuntu-latest
-        steps:
-        -name: checkout du code
-         uses: .github/workflows
-
-        - name: date commit
-          run: date
