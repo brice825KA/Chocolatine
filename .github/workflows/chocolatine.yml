@@ -1,8 +1,7 @@
 name: Chocalatine Project
-0;10;1con:
-  push:
-    branches-ignore:
-      - 'no-ga/**'
+push:
+  branches-ignore:
+    - 'no-ga/**'
   pull_request:
     branches-ignore:
       - 'no-ga/**'
