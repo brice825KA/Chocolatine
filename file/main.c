@@ -7,6 +7,13 @@
 
 #include "../include/my.h"
 
+static void value_default(shell_t **bash, char **user, char *new_e)
+{
+    *bash = (new_e != NULL) ? new_str_to_word(new_e) :
+        new_str_to_word("PATH=/bin:/usr/bin");
+    *user = (!*user) ? my_strdup("guest") : *user;
+}
+
 static void free_allocation(shell_t *bash, char *new, char *user)
 {
     shell_t *tmp;
@@ -41,12 +48,7 @@ int main(int argc, char **argv, char **env)
     char *user = name(env);
 
     new_e = new_env(env);
-    if (new_e == NULL)
-        bash = new_str_to_word("PATH=/bin:/usr/bin");
-    else
-        bash = new_str_to_word(new_e);;
-    if (!user)
-        user = my_strdup("guest");
+    value_default(&bash, &user, new_e);
     while (1) {
         if (isatty(0))
             my_printf("\033[1;3;4;34m[ << %s >> ]\033[0m ", user);
