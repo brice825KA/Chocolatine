@@ -34,13 +34,12 @@ jobs:
   
       - name: check executable
         run: |
-          IFS=',' read -ra ADDR <<< "$EXECUTABLES"
-            for i in "${ADDR[@]}"; do
+          echo "$EXECUTABLES" | tr ',' '\n' | while read -r i; do
               if [ ! -x "$i" ]; then
                 echo "::error file=$i::Executable $i not found or not executable"
                 exit 1
-                fi
-            done
+              fi
+          done
 
   run_tests:
     needs: check_compilation_and_coding_style
