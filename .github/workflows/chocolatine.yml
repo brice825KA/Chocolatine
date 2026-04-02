@@ -27,20 +27,20 @@ jobs:
         run: make
         timeout-minutes: 2
         env:
-        CC: epiclang
+          CC: epiclang
 
       - name: clean
         run: make clean
   
       - name: check executable
         run: |
-            IFS=',' read -ra ADDR <<< "$EXECUTABLES"
-              for i in "${ADDR[@]}"; do
-                if [ ! -x "$i" ]; then
-                  echo "::error file=$i::Executable $i not found or not executable"
-                  exit 1
-                 fi
-               done
+          IFS=',' read -ra ADDR <<< "$EXECUTABLES"
+            for i in "${ADDR[@]}"; do
+              if [ ! -x "$i" ]; then
+                echo "::error file=$i::Executable $i not found or not executable"
+                exit 1
+                fi
+            done
 
   run_tests:
     needs: check_compilation_and_coding_style
