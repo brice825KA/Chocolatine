@@ -14,26 +14,26 @@ env:
 jobs:
   check_compilation_and_coding_style:
   if: github.repository != 'EpitechPGE1-2025/G-PSU-200-COT-2-1-minishell2-13.git' 
-     runs-on: ubuntu-latest
-     container: epitechcontent/epitest-docker
-     steps:
-       - name: checkout repository
-         uses: actions/checkout@v4
+  runs-on: ubuntu-latest
+  container: epitechcontent/epitest-docker
+  steps:
+    - name: checkout repository
+      uses: actions/checkout@v4
 
-       - name: check Coding Style
-         run: banana-check-repo .
+    - name: check Coding Style
+      run: banana-check-repo .
 
-       - name: compile project
-         run: make
-         timeout-minutes: 2
-         env:
-           CC: epiclang
+    - name: compile project
+      run: make
+      timeout-minutes: 2
+      env:
+        CC: epiclang
 
-       - name: clean
-         run: make clean
+    - name: clean
+      run: make clean
   
-       - name: check executable
-         run: |
+    - name: check executable
+      run: |
             IFS=',' read -ra ADDR <<< "$EXECUTABLES"
               for i in "${ADDR[@]}"; do
                 if [ ! -x "$i" ]; then
